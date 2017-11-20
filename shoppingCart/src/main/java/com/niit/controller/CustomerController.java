@@ -3,6 +3,7 @@ package com.niit.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,12 +27,11 @@ public class CustomerController {
 	@RequestMapping("/registerCustomer")  //registerForm=>editForm
 	public String getRegistrationForm(Model model) {
 		model.addAttribute("customer", new Customer());
-		return "registerCustomer";
+		return "registerCustomer";																																																																			
 	}
 
 	@RequestMapping(value = "/registerCustomer", method = RequestMethod.POST)
-	public String registerCustomer(@Valid @ModelAttribute(value="customer") Customer customer  
-			,BindingResult result, Model model){
+	public String registerCustomer(@Valid @ModelAttribute(value="customer") Customer customer, BindingResult result, Model model, HttpServletRequest request){
 		if(result.hasErrors())
 			return "redirect:/registerCustomer";
 		try{
@@ -44,7 +45,7 @@ public class CustomerController {
 		return "login";
 	}
 	
-	@RequestMapping("/getAllCustomers")
+	/*@RequestMapping("/getAllCustomers")
 	public String getAllCustomer(Model model) {
 		List<Customer> customers = customerService.getAllCustomer();
 		model.addAttribute("customerlist", customers);
@@ -55,16 +56,16 @@ public class CustomerController {
 	public String viewCustomer(Model model) {
 		List<Customer> allCustomers = customerService.getAllCustomer();
 		model.addAttribute("customer", allCustomers);
-		return "viewCustomer";
+		return "viewCustomer";*/
 	}
-/*
-	@RequestMapping("/deletecustomer/{id}")
+
+	/*@RequestMapping("/deletecustomer/{id}")
 	public String deleteCustomer(@PathVariable("id") int id) {
 		Customer customer = customerService.getCustomerById(id);
 		customerService.deleteCustomer(customer);
-		return "redirect:/productlist";
+		return "redirect:/customerlist";
 	}
-*/
+
 	@RequestMapping(value="/editCustomer", method = RequestMethod.POST)
 	public String editCustomerDetails(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
 		if (result.hasErrors())
@@ -72,5 +73,5 @@ public class CustomerController {
 		customerService.updateCustomer(customer);
 		return "redirect:/editCustomer";
 
-	}
-}
+	}*/
+

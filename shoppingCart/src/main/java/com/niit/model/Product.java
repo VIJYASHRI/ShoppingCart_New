@@ -61,8 +61,8 @@ public class Product implements Serializable{
 	public void setDate(String date) {
 		this.date = date;
 	}
-	@ManyToOne(cascade = { CascadeType.ALL})
-	@JoinColumn(name="cid")
+	@ManyToOne
+	@JoinColumn(name="cid",referencedColumnName="id")
 	private Category category;
 
 	

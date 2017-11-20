@@ -36,21 +36,20 @@
 		  <td>${product.date }</td>
 		 </tr>
 		 
-		
-		 
-	<%-- 	 <tr>			
-			<td><a href="" ng-click="addToCart(${product.id })"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+		<security:authorize access="hasRole('ROLE_USER')">
+		 <tr>			
+			<td><a href="<c:url value='/addCartItem/${product.id}'></c:url>" ><span class="glyphicon glyphicon-shopping-cart" style="font-size:20px"></span>Add To Cart</a></td>
 			</tr>
-		 
+		 </security:authorize>
 		 
 		</table>
 	</div>
 	
-	<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
- --%>
+	
  </table>	
 </div>
- <script></script>
+<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
+
 </body>
 <%@ include file="footer.jsp"%>
 </html>

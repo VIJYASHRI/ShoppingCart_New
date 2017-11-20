@@ -1,8 +1,17 @@
 package com.niit.dao;
 
+import java.util.List;
+
+import org.springframework.security.access.prepost.PreAuthorize;
+
 import com.niit.model.Cart;
 
 public interface CartDao {
 	
-	public Cart getCart(int cartId);
+	/*@PreAuthorize("hasRole('ROLE_USER')")
+	public void addCart(Cart cart);
+	public void updateCart(Cart cart);
+	public boolean deleteCart(Cart cart);
+	public List<Cart> getCartItems(int customer_id);*/
+	public Cart getCart(int cart_id);
 }

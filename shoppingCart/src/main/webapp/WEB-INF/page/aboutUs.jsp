@@ -12,19 +12,25 @@
 body  {
     background-image: url("resources/images/cakes/img/wall2.jpg");
     background-size: cover;
-    background-color:rgba(0,0,0,0.6);
+    
 }
-
+.form {
+	background-color:rgba(0,0,0,0.6);
+}
 </style>
 <body>
-<center>
-<h2> CAKES FOR YOU</h2>
-<h3>WE BAKE FOR YOU...!</h3>
-
 <div class="container">
-	
+<div class="panel panel-default">
+<div class="panel-heading">
+<center>
+<h3> CAKES FOR YOU</h3><br>
+WE BAKE FOR YOU...!
+</div>
+</div>	
             <form>
-                <div class="controls controls-row">
+            <div class="panel panel-default">
+				<div class="panel-body">
+                	<div class="controls controls-row">
                <b>Name:</b> <input id="name" name="name" type="text" placeholder="Name" style="width: 500px;"> <br><br>
                <b>Email:</b><input id="email" name="email" type="email"  placeholder="Email address" style="width: 500px;"><br><br>
                 </div>
@@ -34,6 +40,8 @@ body  {
                   
                 <div class="controls">
                     <button id="contact-submit" type="submit" class="btn btn-primary input-medium ">Send</button>
+                </div>
+                </div>
                 </div>
             </form>
         </div>

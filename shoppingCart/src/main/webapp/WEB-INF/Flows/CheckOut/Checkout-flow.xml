@@ -17,7 +17,7 @@
  <transition on="shippingDetailCollected" to="orderConfirmation"></transition>
  <transition on="backToCollectCustomerInfo" to="collectCustomerInfo"></transition>
  </view-state>
- 
+  
  <view-state id="orderConfirmation">
  <transition on="orderConfirmed" to="processOrder"></transition>
  <transition on="backToCollectShippingDetail" to="collectShippingDetail"></transition>

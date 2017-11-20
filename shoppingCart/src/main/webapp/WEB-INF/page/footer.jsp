@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4><center>By Vijya Shri...</center></h4>
+<h4><center> @Copyrights | Privacy | Terms | Support</center></h4>
 </body>
 </html>

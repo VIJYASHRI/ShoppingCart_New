@@ -1,37 +1,59 @@
 package com.niit.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.Email;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Customer {
+@Table(name="customer")
+public class Customer implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private  String firstname;
 	private String lastname;
+	
 	private String email;
 	private String phoneNumber;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name="user_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="user_id",referencedColumnName="id")
 	private Users users;
+	
 	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name="cart_id")
+	@JsonIgnore
+	private Cart cart;
+	
+	
+	@OneToOne(cascade={CascadeType.ALL})
 	@JoinColumn(name="BillingAddresss_id")
+	
 	private BillingAddress billingAddress;
 	
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name="ShippingAddress_id")
+	//@Valid
 	private ShippingAddress shippingAddress;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name="cart_id")
-	private Cart cart;
 	
 	public int getId() {
 		return id;

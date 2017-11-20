@@ -7,9 +7,9 @@ import com.niit.model.Customer;
 public interface CustomerDao {
 	public void saveCustomer(Customer customer);
 	public Customer getCustomerByUserName(String username);
-	//public Customer getCustomerById(int id);
+	/*public Customer getCustomerById(int id);
 	public void updateCustomer(Customer customer);
-	public void deleteCustomer(Customer customer);
+	public void deleteCustomer(Customer customer);*/
 	public List<Customer> getAllCustomer();
 	
 }

@@ -31,9 +31,7 @@ public class ProductController {
 	private ProductService productService;
 	@Autowired
 	private CategoryService categoryService;
-	/*
-	 * @Autowired(required= true) Category category;
-	 */
+
 	Path paths;
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
@@ -75,12 +73,7 @@ public class ProductController {
 
 	@RequestMapping("/productlist")
 	public String getAllProduct(Model model) {
-		List<Product> products = productService.getAllProduct(); // Assigning
-																	// list of
-																	// products
-																	// to model
-																	// attribute
-																	// products
+		List<Product> products = productService.getAllProduct(); // Assigning list of products to model attribute products
 		model.addAttribute("productList", products);
 		return "productlist";
 	}

@@ -104,19 +104,27 @@ li.dropdown {
 
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 				<li><a href="${url }">Add New Product</a></li>
+				<li><a href="getAllCustomers">Customer</a></li>
 			</security:authorize>
 
 			<c:url var="allProducts" value="/productlist"></c:url>
 			<li><a href="${allProducts}">View all products</a></li>
 
 			<li><div class="dropdown">
-					<a href="" class="dropbtn">Select by Category</a>
-					<div class="dropdown-content">
-						<a href="products/productsByCategory?searchCondition=Birthday">Birthday</a>
-						<a href="products/productsByCategory?searchCondition=New Arrivals">New Arrivals</a>
-						<a	href="products/productsByCategory?searchCondition=Anniversary">Anniversary</a>
-						<a href="products/productsByCategory?searchCondition=Special Occasions">Special Occasions</a>
-					</div>
+					<a href="" class="dropdown-toggle"
+						data-toggle="dropdown">Select by Category
+ 							<b	class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+					<li>
+						<a href="products/productsByCategory?searchCondition=Birthday">Birthday</a></li>
+						<li>
+						<a href="products/productsByCategory?searchCondition=New Arrivals">New Arrivals</a></li>
+						<li>
+						<a	href="products/productsByCategory?searchCondition=Anniversary">Anniversary</a></li>
+						<li>
+						<a href="products/productsByCategory?searchCondition=Special Occasions">Special Occasions</a></li>
+					</ul>
 				</div> <%-- <c:url var="url_1"
 					value="/products/productsByCategory?searchCondition=New Arrivals">
 				</c:url>
@@ -133,16 +141,28 @@ li.dropdown {
 				
 	</li>
 	</ul> --%></li>
+	
 			<li><strong><a href="">WelCome ${pageContext.request.userPrincipal.name }</a></strong></li>
 		</c:if>
-		<li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>
+		 <ul class="nav navbar-nav pull-right">
+		<li><a href="<c:url value="/cart"></c:url>">
+		<span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+		
 		<c:if test="${pageContext.request.userPrincipal.name ==null }">
-			<li><a href="<c:url value="/login" ></c:url>">login</a></li>
-			<li><a href="<c:url value="/registerCustomer"></c:url>">Register</a></li>
+			<li><a href="<c:url value="/login" ></c:url>">
+			<span class="glyphicon glyphicon-log-in"></span> login</a></li>
+			
+			<li><a href="<c:url value="/registerCustomer"></c:url>">
+			<span class="glyphicon glyphicon-SignUp"></span> SignIn</a></li>
 		</c:if>
 		<c:if test="${pageContext.request.userPrincipal.name !=null }">
-			<li><a href="<c:url value="/j_spring_security_logout" ></c:url>">logout</a></li>
+			<li><a href="<c:url value="/j_spring_security_logout" ></c:url>">
+			<span class="glyphicon glyphicon-log-out"></span> logout</a></li>
 		</c:if>
+	
+	</ul>
 	</ul>
 </div>
+
+</body>
 <br><br><br>

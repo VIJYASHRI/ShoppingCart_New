@@ -1,23 +1,31 @@
  <%@ include file="header.jsp" %>
 
   <style>
-  body{
-  background-color: lightgrey;
+  /* body{
+  background-color: none;
   background-size: cover;
-  }
-  
+  background-position: center;
+  background-repeat: no-repeat;
+   margin: auto;
+  } 
+   */
   .carousel-inner > .item > cakes,
-  .carousel-inner > .item > a > cakes {
-      width: 80%;
-      margin: auto;
-      max-height:400px;
-  }
+  .carousel-inner > .item > a > cakes 
+  
+  
+  .carousel-inner{height: 100%;}
+  .carousel,.item,.active {
+  		height: 100%;
+  		width: 100%;
+  		 margin: auto;
+  		} 
+     
   </style>
-</head>
+</head>					
 <body><center>
  <h2>WelCome to my page</h2>
 <div class="container">
-  <br>
+  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -102,15 +110,7 @@
     </a>
   </div>
 </div>
-<!-- <div class="container">
-  <ul class="nav navbar-nav">
-      <li class="active">
-      <li><a href="viewProduct">View Products</a></li>
-      <li><a href="productlist">Product list</a></li> 
-      <li><a href="#">About Us</a></li>
-    </ul><br>
 
-  </div> -->
 </center>
 </body>
 <%@ include file="footer.jsp" %>
